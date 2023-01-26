@@ -20,9 +20,11 @@ public class TestModeTests {
     @DisplayName("Should successfuly login with active registered user")
     void ShouldSuccessfulLoginIfRegisteredActiveUser() {
         var registeredUser = getRegisteredUser("active");
-        $("[data-test-id=date = 'login'] input").setValue(registeredUser.getLogin());
-        $("[data-test-id=date = 'password'] input").setValue(registeredUser.getPassword());
+        $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
+        $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $$("span.button__text").find(Condition.exactText("Продолжить")).click();
         $("h2").shouldHave(Condition.exactText("Личный кабинет")).shouldBe(Condition.visible);
     }
+
+
 }
